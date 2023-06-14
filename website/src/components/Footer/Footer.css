@@ -1,0 +1,37 @@
+.footer {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+  height: 7rem;
+  width: 100%;
+  /* background-color: rgb(24, 28, 38); */
+  /* background-color: blueviolet; */
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+.footer__social {
+  display: inline-block;
+}
+.footer__social-copy {
+  font-size: 1.2rem;
+  color: gray;
+}
+
+.footer__social:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.footer__social-whatsup {
+  color: rgb(0, 148, 50);
+}
+
+.footer__social-massenger {
+  margin-top: 0.8rem;
+  color: rgb(16, 148, 244);
+}
+
+.footer__social-gmail {
+  color: rgb(233, 65, 52);
+}

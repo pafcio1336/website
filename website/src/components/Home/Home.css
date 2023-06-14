@@ -4,6 +4,7 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
+  overflow: hidden;
   border-bottom: 1px solid rgb(97, 219, 251);
   background: linear-gradient(
     70deg,
@@ -51,7 +52,7 @@
 .section__home-welcome--second {
   font-weight: 600;
   letter-spacing: 0.1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   color: rgb(97, 219, 251);
   animation: 1s moveItRight ease-out;
   backface-visibility: hidden;

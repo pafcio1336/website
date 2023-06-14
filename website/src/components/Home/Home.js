@@ -8,7 +8,7 @@ function Home() {
         <div className="section__home-welcome section__home-welcome--border">
           <h2 className="section__home-welcome--main">Hi there !!!</h2>
           <h1 className="section__home-welcome--second">
-            New Junior Programer on board!
+            New React Programist on the market!
           </h1>
           <p className="section__home-welcome--paragraph">
             I invite you to browse my new personal webpage presenting some

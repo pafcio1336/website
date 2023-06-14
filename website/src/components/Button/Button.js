@@ -1,10 +1,19 @@
 import React from "react";
+import { BrowserRouter, Link } from "react-router-dom";
 import "./Button.css";
 function Button(props) {
   return (
-    <div>
-      <button className="button-primary">{props.navTitle}</button>
-    </div>
+    <nav>
+      <ul className="button">
+        <li>
+          {/* <BrowserRouter> */}
+          <a href={props.navTitle} className="button-primary">
+            {props.navTitle}
+          </a>
+          {/* </BrowserRouter> */}
+        </li>
+      </ul>
+    </nav>
   );
 }
 
