@@ -5,10 +5,13 @@
   justify-content: center;
   height: 7rem;
   width: 100%;
+  bottom: 0;
+  /* margin-bottom: 3rem; */
   /* background-color: rgb(24, 28, 38); */
   /* background-color: blueviolet; */
   font-size: 1.6rem;
   text-decoration: none;
+  position: fixed;
 }
 
 .footer__social {

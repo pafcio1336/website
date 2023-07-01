@@ -1,9 +1,10 @@
 .section__skills {
-  height: 75vh;
+  height: 93vh;
   width: 100%;
   margin: 0 auto;
+  padding: 10rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
   overflow: hidden;
   border-bottom: 1px solid rgb(97, 219, 251);
@@ -17,11 +18,10 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  height: 75vh;
+  height: 86vh;
   max-width: 500px;
   margin: 0 0.15rem;
   padding: 1rem 2rem;
-  margin-top: 33vh;
   font-size: 1.3rem;
   background: transparent;
 }
@@ -61,6 +61,7 @@
   margin: 0 0.15rem;
   padding: 1rem 2rem;
   border-radius: 0.7rem;
+  box-shadow: 2px 2px 8px 5px rgb(70, 86, 94);
 }
 
 /* .title {

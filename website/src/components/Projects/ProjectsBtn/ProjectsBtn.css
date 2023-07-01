@@ -1,0 +1,52 @@
+.container__projects.go__left {
+  width: auto !important;
+  position: absolute;
+  z-index: 20;
+}
+.container__projects.go__right {
+  position: absolute;
+  width: auto !important;
+  z-index: 20;
+}
+
+.container__projects.go__left button {
+  position: fixed;
+  left: 6rem;
+  width: 4rem;
+  background: transparent;
+  border: none;
+  margin: 0;
+  font-size: 5rem;
+  color: whitesmoke;
+  box-shadow: inset rgb(100, 189, 228);
+  transition: all 0.4s;
+}
+
+.container__projects.bottom {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  width: auto !important;
+  z-index: 20;
+}
+
+.container__projects.go__right button {
+  position: fixed;
+  right: 6rem;
+  width: 4rem;
+  background: transparent;
+  border: none;
+  margin: 0;
+  font-size: 5rem;
+  color: whitesmoke;
+  box-shadow: inset rgb(100, 189, 228);
+  transition: all 0.4s;
+}
+
+.container__projects.go__left button:hover {
+  color: rgb(100, 189, 228);
+}
+
+.container__projects.go__right button:hover {
+  color: rgb(81, 128, 148);
+}

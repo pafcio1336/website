@@ -1,7 +1,7 @@
 .section__home {
-  height: 75vh;
+  height: 86vh;
   width: 100%;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   display: flex;
   align-items: center;
   overflow: hidden;

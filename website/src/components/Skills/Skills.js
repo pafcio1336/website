@@ -46,8 +46,7 @@ function Skills() {
           </div>
         </div>
       </div>
-
-      <p className="section__skills paragraph paragraph-typewriter">
+      <div className="section__skills paragraph paragraph-typewriter">
         <Typewriter
           options={{
             delay: 15,
@@ -69,7 +68,7 @@ function Skills() {
               .start();
           }}
         />
-      </p>
+      </div>
     </div>
   );
 }
