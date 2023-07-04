@@ -1,15 +1,15 @@
 import React from "react";
 import "./Brush.css";
 
-function Brush() {
+function Brush({lineWidth}) {
   return (
     <select
-      // onChange={(event) => handleUtensil(event.target.value, "weight")}
+      onChange={(event) => lineWidth(event.target.value)}
       className="brush__detail"
     >
-      <option>Thin</option>
-      <option>Normal</option>
-      <option>Thick</option>
+      <option value="5">Thin</option>
+      <option value="10">Normal</option>
+      <option value="15">Thick</option>
     </select>
   );
 }

@@ -1,28 +1,26 @@
 import React from "react";
 import "../Tools/Items.css";
 
-function Items() {
+function Items({bucket, eraser}) {
   return (
     <div>
       <div className="items">
         <button
-          name="brush"
-          // onClick={(event) => handleUtensil(event.target.name, "tool")}
+          name="brush" 
         >
           🖌
         </button>
-
         <button
           name="bucket"
-          // onClick={(event) => handleUtensil(event.target.name, "tool")}
+          onClick={() => bucket()}
         >
           🗃
         </button>
         <button
           name="eraser"
-          // onClick={(event) => handleUtensil(event.target.name, "tool")}
+          onClick={eraser}
         >
-          {/* ❌ */}X
+          X
         </button>
       </div>
     </div>

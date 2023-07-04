@@ -16,11 +16,12 @@ const colorArray = [
   "orange",
 ];
 
-function ColorWrapper({ setLineColor }) {
+function ColorWrapper({colorLine}) {
   const colorGrid = colorArray.map((color) => {
     return (
       <ColorsCard
-        setLineColor={setLineColor}
+      colorLine={colorLine}
+        // setLineColor={setLineColor}
         key={color}
         color={color}
         style={{

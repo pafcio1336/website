@@ -9,15 +9,16 @@ function ContainerPaint() {
     backgroundColor: "white",
   });
   const [lineColor, setLineColor] = useState("black");
-  const [lineWidth, setLineWidth] = useState(5);
+  const [lineWidthNew, setLineWidthNew] = useState(5);
+  
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     ctx.strokeStyle = lineColor;
-    ctx.lineWidth = lineWidth;
+    ctx.lineWidth = lineWidthNew;
     ctxRef.current = ctx;
-  }, [lineColor, lineWidth]);
+  }, [ lineWidthNew, lineColor]);
 
   const checkIfDrawing = useRef(false);
 
@@ -26,6 +27,8 @@ function ContainerPaint() {
   const mouseUpListenerRef = useRef(null);
 
   const pointRef = useRef(null);
+  const colorRef = useRef(null);
+  const widthRef = useRef(null)
 
   useEffect(() => {
     return () => {
@@ -57,8 +60,10 @@ function ContainerPaint() {
         if (checkIfDrawing.current) {
           const cursorPosition = computedCanvas(event.clientX, event.clientY);
           const ctx = canvasRef.current.getContext("2d");
-          if (onDraw) onDraw(ctx, cursorPosition, pointRef.current);
+          if (onDraw) onDraw(ctx, cursorPosition, pointRef.current, colorRef.current, widthRef.current);
           pointRef.current = cursorPosition;
+          colorRef.current = lineColor;
+          widthRef.current = lineWidthNew
           console.log(cursorPosition);
         }
       };
@@ -79,6 +84,8 @@ function ContainerPaint() {
       const mouseUpEventListener = () => {
         checkIfDrawing.current = false;
         pointRef.current = null;
+        colorRef.current = null;
+        widthRef.current = null;
       };
       mouseUpListenerRef.current = mouseUpEventListener;
       canvasRef.current.addEventListener("mouseup", mouseUpEventListener);
@@ -99,25 +106,35 @@ function ContainerPaint() {
     return setCanvasRef;
   }
 
-  function onDraw(ctx, cursorPosition, pointRef) {
-    line(pointRef, cursorPosition, ctx, lineColor, 5);
+  function onDraw(ctx, cursorPosition, pointRef, colorRef) {
+    line(pointRef, cursorPosition, ctx, colorRef, widthRef);
   }
 
-  function line(start, end, ctx, lineColor, width) {
+  function line(start, end, ctx, colorRef, widthRef) {
     start = start ?? end;
     ctx.beginPath();
-    ctx.lineWidth = width;
-    ctx.strokeStyle = lineColor;
+    ctx.fillStyle = colorRef;
+    ctx.lineWidth = widthRef;
+    ctx.strokeStyle = colorRef;
     ctx.moveTo(start.x, start.y);
     ctx.lineTo(end.x, end.y);
     ctx.stroke();
 
-    ctx.fillStyle = lineColor;
+    ctx.fillStyle = colorRef;
+    ctx.strokeStyle = colorRef;
+    ctx.lineWidth= widthRef;
     ctx.beginPath();
     ctx.arc(start.x, start.y, 2, 0, 2 * Math.PI);
-    ctx.fill();
+    ctx.fill()
+    console.log(lineColor)
   }
 
+  const clearContainer = (ctx , canvas) => {
+    // ctx.clearRect(0,0 ,canvas.width, canvas.height)
+    console.log(ctx)
+  }
+    
+  
   // function handleMouseDown(event) {
   //   if (tool === "bucket" && draw === true) {
   //     const newColor = { ...fullColor, backgroundColor: color };
@@ -130,9 +147,34 @@ function ContainerPaint() {
   //   }
   // }
 
+  const bucketHandler = (color) => {
+    console.log("bucket w rodzicu")
+    setFullColor({backgroundColor: color})
+    console.log(color, colorRef)
+  }
+
+  const widthLineHandler = (width) => {
+    console.log("grubosc w rodzicu", width)
+    setLineWidthNew(width)
+  }
+
+  const colorLineHandler = (color) => {
+  
+    console.log("funkcja w rodzicu", color);
+    setLineColor(color);
+    
+      // setLineColor(lineColor[color]);
+      // console.log({lineColor, color})
+  }
+
+  const eraserHandler = (ctx) => {
+    console.log("eraser w rodzicu");
+    setFullColor({backgroundColor: "white" })
+    clearContainer()
+  }
   return (
     <>
-      <Tools setLineColor={setLineColor} setLineWidth={setLineWidth} />
+      <Tools colorLine={colorLineHandler} lineWidth={widthLineHandler} bucket={bucketHandler} eraser={eraserHandler}/>
       <canvas
         ref={setCanvasRef}
         style={fullColor}

@@ -2,14 +2,10 @@ import React from "react";
 import "./Items.css";
 import "./ColorsCard.css";
 
-function ColorsCard({ color, setLineColor }) {
-  const handleColor = (event) => {
-    setLineColor((color = event.target.value));
-    console.log(event.target.value);
-  };
+function ColorsCard({color, colorLine}) {
   return (
     <div
-      onClick={(event) => handleColor(event)}
+      onClick={() => colorLine(color)}
       className="color-icon"
       style={{ backgroundColor: `${color}` }}
     ></div>

@@ -4,12 +4,14 @@ import ColorWrapper from "./ColorWrapper";
 import Brush from "./Brush";
 import "../Tools/Tools.css";
 
-function Tools({ setLineColor }) {
+function Tools({colorLine, lineWidth, bucket, eraser}) {
+
+  
   return (
     <div className="tolls__wrapper">
-      <Items />
-      <Brush />
-      <ColorWrapper setLineColor={setLineColor} />
+      <Items bucket={bucket} eraser={eraser}/>
+      <Brush lineWidth={lineWidth}/>
+      <ColorWrapper colorLine={colorLine} />
     </div>
   );
 }
