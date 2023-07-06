@@ -10,7 +10,7 @@ import Contact from "./components/Contact/Contact";
 
 import "./App.js";
 import "./App.scss";
-import "./components/Nav/Navigation.css";
+import "./components/Nav/Navigation.scss";
 import "./components/Button/Button.scss";
 
 function App() {

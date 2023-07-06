@@ -1,7 +1,7 @@
 import React from "react";
-import "./Brush.css";
+import "./Brush.scss";
 
-function Brush({lineWidth}) {
+function Brush({ lineWidth }) {
   return (
     <select
       onChange={(event) => lineWidth(event.target.value)}

@@ -1,16 +1,12 @@
-import React, { useState, useRef } from "react";
-import { useWindowScroll } from "@uidotdev/usehooks";
-import "./Projects.css";
+import React from "react";
+import "./Projects.scss";
 import Slider from "./Slider/Slider";
-// import SliderBtn from "./Slider/SliderBtn/SliderBtn";
 import ProjectsBtn from "./ProjectsBtn/ProjectsBtn";
 import Paint from "./Paint/Paint";
 import Kalkulator from "./Kalkulator/Kalkulator";
 import DotBtn from "./ProjectsBtn/DotBtn";
 
 function Projects() {
-  const [{ x, y }, scrollTo] = useWindowScroll();
-
   return (
     <>
       <div className="container__projects">

@@ -1,5 +1,5 @@
 import React from "react";
-import "../Tools/Items.css";
+import "../Tools/Items.scss";
 
 function Items({ bucket, eraser, colorLine }) {
   return (

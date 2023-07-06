@@ -3,7 +3,7 @@ import React from "react";
 import { FaFacebookMessenger } from "@react-icons/all-files/fa/FaFacebookMessenger";
 import { SiGmail } from "@react-icons/all-files/si/SiGmail";
 import { AiOutlineWhatsApp } from "@react-icons/all-files/ai/AiOutlineWhatsApp";
-import "./Footer.css";
+import "./Footer.scss";
 function Footer() {
   return (
     <footer className="footer">

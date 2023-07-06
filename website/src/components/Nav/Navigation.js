@@ -1,4 +1,5 @@
 import Button from "../Button/Button";
+import "./Navigation.scss";
 function Navigation() {
   return (
     <div className="nav">

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Skills.css";
+import "./Skills.scss";
 import Typewriter from "typewriter-effect";
 function Skills() {
   return (

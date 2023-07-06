@@ -1,0 +1,15 @@
+.Slider__button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  &.prev {
+    margin-left: 2rem;
+    z-index: 1;
+  }
+
+  &.next {
+    margin-right: 2rem;
+  }
+}

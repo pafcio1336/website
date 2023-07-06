@@ -1,8 +1,8 @@
 import React from "react";
-import "./Items.css";
-import "./ColorsCard.css";
+import "./Items.scss";
+import "./ColorsCard.scss";
 
-function ColorsCard({color, colorLine}) {
+function ColorsCard({ color, colorLine }) {
   return (
     <div
       onClick={() => colorLine(color)}

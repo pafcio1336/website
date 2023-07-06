@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import SliderBtn from "./SliderBtn/SliderBtn";
-import "./Slider.css";
+import "./Slider.scss";
 
 function Slider() {
   const [slideIndex, setSlideIndex] = useState(1);
   const [res, setRes] = useState([]);
   const [text, setText] = useState("cars");
   const [inputValue, setInputValue] = useState("");
-  const [focusInput, setFocusInput] = useState(false)
-
+  const [focusInput, setFocusInput] = useState(false);
 
   const nextSlide = () => {
     if (slideIndex !== res.results.length) {
@@ -27,8 +26,8 @@ function Slider() {
   };
 
   const handleFocus = () => {
-    if(focusInput) setInputValue("")    
-  }
+    if (focusInput) setInputValue("");
+  };
 
   const handleInput = (event) => {
     event.preventDefault();
@@ -79,10 +78,11 @@ function Slider() {
               }
               key={img.id}
             >
-              <img      src={img.urls.small}
+              <img
+                src={img.urls.small}
                 alt={img.alt_description}
-                loading="lazy">
-              </img>
+                loading="lazy"
+              ></img>
             </div>
           );
         })}

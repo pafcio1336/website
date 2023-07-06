@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import Tools from "./Tools/Tools";
-import "./ContainerPaint.css";
+import "./ContainerPaint.scss";
 
 function ContainerPaint() {
   const canvasRef = useRef(null);

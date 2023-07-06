@@ -1,5 +1,5 @@
 import React from "react";
-import "../Tools/ColorWrapper.css";
+import "../Tools/ColorWrapper.scss";
 import ColorsCard from "./ColorsCard";
 
 const colorArray = [
@@ -16,11 +16,11 @@ const colorArray = [
   "orange",
 ];
 
-function ColorWrapper({colorLine}) {
+function ColorWrapper({ colorLine }) {
   const colorGrid = colorArray.map((color) => {
     return (
       <ColorsCard
-      colorLine={colorLine}
+        colorLine={colorLine}
         // setLineColor={setLineColor}
         key={color}
         color={color}
