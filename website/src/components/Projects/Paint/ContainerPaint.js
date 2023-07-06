@@ -8,9 +8,11 @@ function ContainerPaint() {
   const [fullColor, setFullColor] = useState({
     backgroundColor: "white",
   });
+
   const [lineColor, setLineColor] = useState("black");
+  const [cursorColor, setCursorColor] = useState(lineColor);
   const [lineWidthNew, setLineWidthNew] = useState(5);
-  
+  let colorKeeper = lineColor;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -18,7 +20,7 @@ function ContainerPaint() {
     ctx.strokeStyle = lineColor;
     ctx.lineWidth = lineWidthNew;
     ctxRef.current = ctx;
-  }, [ lineWidthNew, lineColor]);
+  }, [lineWidthNew, lineColor, colorKeeper]);
 
   const checkIfDrawing = useRef(false);
 
@@ -28,7 +30,7 @@ function ContainerPaint() {
 
   const pointRef = useRef(null);
   const colorRef = useRef(null);
-  const widthRef = useRef(null)
+  const widthRef = useRef(null);
 
   useEffect(() => {
     return () => {
@@ -39,11 +41,12 @@ function ContainerPaint() {
         window.removeEventListener("mouseup", mouseUpListenerRef.current);
       }
     };
-  }, []);
+  }, [lineColor]);
 
   function setCanvasRef(ref) {
     if (!ref) return;
     if (canvasRef.current) {
+      colorRef.current = colorKeeper;
       canvasRef.current.removeEventListener(
         "mousedown",
         mouseDownListenerRef.current
@@ -55,16 +58,22 @@ function ContainerPaint() {
     onMouseDown();
     onMouseUp();
 
-    function onMouseMove() {
+    function onMouseMove(e) {
       const mouseMoveListener = (event) => {
         if (checkIfDrawing.current) {
           const cursorPosition = computedCanvas(event.clientX, event.clientY);
           const ctx = canvasRef.current.getContext("2d");
-          if (onDraw) onDraw(ctx, cursorPosition, pointRef.current, colorRef.current, widthRef.current);
+          if (onDraw)
+            onDraw(
+              ctx,
+              cursorPosition,
+              pointRef.current,
+              colorRef.current,
+              widthRef.current
+            );
           pointRef.current = cursorPosition;
           colorRef.current = lineColor;
-          widthRef.current = lineWidthNew
-          console.log(cursorPosition);
+          widthRef.current = lineWidthNew;
         }
       };
       mouseMoveListener.current = mouseMoveListener;
@@ -75,6 +84,8 @@ function ContainerPaint() {
       if (!canvasRef.current) return;
       const mouseDownEventListener = () => {
         checkIfDrawing.current = true;
+        pointRef.current = null;
+        colorRef.current = null;
       };
       mouseDownListenerRef.current = mouseDownEventListener;
       canvasRef.current.addEventListener("mousedown", mouseDownEventListener);
@@ -103,83 +114,68 @@ function ContainerPaint() {
       }
     }
 
+    function onDraw(ctx, cursorPosition, pointRef, colorRef) {
+      line(pointRef, cursorPosition, ctx, colorRef, widthRef);
+    }
+
+    function line(start, end, ctx, colorRef, widthRef) {
+      start = start ?? end;
+      ref.style.cursor = "display";
+      ctx.beginPath();
+      ctx.fillStyle = colorRef;
+      ctx.lineWidth = widthRef;
+      ctx.strokeStyle = colorRef;
+      ctx.moveTo(start.x, start.y);
+      ctx.lineTo(end.x, end.y);
+      ctx.stroke();
+      setCursorColor(lineColor);
+
+      ctx.fillStyle = colorRef;
+      ctx.strokeStyle = colorRef;
+      ctx.lineWidth = widthRef;
+      ctx.beginPath();
+      ctx.lineCap = "round";
+      ctx.arc(start.x, start.y, 2, 0, 2 * Math.PI);
+      ctx.fill();
+    }
+
     return setCanvasRef;
   }
 
-  function onDraw(ctx, cursorPosition, pointRef, colorRef) {
-    line(pointRef, cursorPosition, ctx, colorRef, widthRef);
-  }
-
-  function line(start, end, ctx, colorRef, widthRef) {
-    start = start ?? end;
-    ctx.beginPath();
-    ctx.fillStyle = colorRef;
-    ctx.lineWidth = widthRef;
-    ctx.strokeStyle = colorRef;
-    ctx.moveTo(start.x, start.y);
-    ctx.lineTo(end.x, end.y);
-    ctx.stroke();
-
-    ctx.fillStyle = colorRef;
-    ctx.strokeStyle = colorRef;
-    ctx.lineWidth= widthRef;
-    ctx.beginPath();
-    ctx.arc(start.x, start.y, 2, 0, 2 * Math.PI);
-    ctx.fill()
-    console.log(lineColor)
-  }
-
-  const clearContainer = (ctx , canvas) => {
-    // ctx.clearRect(0,0 ,canvas.width, canvas.height)
-    console.log(ctx)
-  }
-    
-  
-  // function handleMouseDown(event) {
-  //   if (tool === "bucket" && draw === true) {
-  //     const newColor = { ...fullColor, backgroundColor: color };
-  //     setFullColor(newColor);
-  //   }
-  // }
-  // function handleClickEraser() {
-  //   if (tool === "eraser") {
-  //     setFullColor({ ...fullColor, backgroundColor: "white" });
-  //   }
-  // }
-
-  const bucketHandler = (color) => {
-    console.log("bucket w rodzicu")
-    setFullColor({backgroundColor: color})
-    console.log(color, colorRef)
-  }
+  const eraserHandler = () => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  };
 
   const widthLineHandler = (width) => {
-    console.log("grubosc w rodzicu", width)
-    setLineWidthNew(width)
-  }
+    setLineWidthNew(width);
+  };
 
   const colorLineHandler = (color) => {
-  
-    console.log("funkcja w rodzicu", color);
-    setLineColor(color);
-    
-      // setLineColor(lineColor[color]);
-      // console.log({lineColor, color})
-  }
+    colorKeeper = color;
+    if (colorKeeper !== lineColor) {
+      setLineColor(colorKeeper);
+    }
 
-  const eraserHandler = (ctx) => {
-    console.log("eraser w rodzicu");
-    setFullColor({backgroundColor: "white" })
-    clearContainer()
-  }
+    return colorKeeper;
+  };
+  const bucketHandler = () => {
+    setFullColor({ backgroundColor: colorKeeper });
+  };
+
   return (
     <>
-      <Tools colorLine={colorLineHandler} lineWidth={widthLineHandler} bucket={bucketHandler} eraser={eraserHandler}/>
+      <Tools
+        colorLine={colorLineHandler}
+        lineWidth={widthLineHandler}
+        bucket={bucketHandler}
+        eraser={eraserHandler}
+      />
       <canvas
         ref={setCanvasRef}
         style={fullColor}
         className="paint__box"
-        // onClick={handleClickEraser}
         width={`800px`}
         height={`500px`}
       ></canvas>

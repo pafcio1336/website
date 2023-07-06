@@ -9,8 +9,9 @@ import Skills from "./components/Skills/Skills";
 import Contact from "./components/Contact/Contact";
 
 import "./App.js";
+import "./App.scss";
 import "./components/Nav/Navigation.css";
-import "./components/Button/Button.css";
+import "./components/Button/Button.scss";
 
 function App() {
   useEffect(() => {});

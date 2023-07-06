@@ -1,25 +1,19 @@
 import React from "react";
 import "../Tools/Items.css";
 
-function Items({bucket, eraser}) {
+function Items({ bucket, eraser, colorLine }) {
   return (
     <div>
       <div className="items">
-        <button
-          name="brush" 
-        >
-          🖌
-        </button>
+        {/* <button name="brush">🖌</button> */}
         <button
           name="bucket"
-          onClick={() => bucket()}
+          colorLine={colorLine}
+          onClick={() => bucket(colorLine)}
         >
           🗃
         </button>
-        <button
-          name="eraser"
-          onClick={eraser}
-        >
+        <button name="eraser" onClick={eraser}>
           X
         </button>
       </div>
