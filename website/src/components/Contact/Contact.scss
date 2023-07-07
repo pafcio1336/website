@@ -1,15 +1,188 @@
-.text {
+.contact {
   height: 93vh;
   width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
   overflow: hidden;
+  text-align: center;
+
   border-bottom: 1px solid rgb(97, 219, 251);
   background: linear-gradient(
     70deg,
     rgba(24, 28, 38, 1) 75%,
     rgba(97, 219, 251, 0.2) 90%
   );
+
+  &__container {
+    display: flex;
+    width: 50rem;
+    height: 50rem;
+    margin: 2rem;
+    border-radius: 5px 5px 5px 5px;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 25px 5px rgba(97, 219, 251, 1);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0 auto;
+    padding: 1rem;
+  }
+
+  &__paragraph {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 3rem;
+    border-radius: 0px 0px 5px 5px;
+    background-color: rgb(39, 66, 81);
+
+    &-1 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      height: 50%;
+      overflow: hidden;
+
+      &--telephone {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 47%;
+        height: 95%;
+        border-radius: 1rem 1rem 1rem 1rem;
+        background-color: rgb(33, 140, 117);
+
+        .svg {
+          width: 100%;
+          color: rgb(9, 161, 62);
+          font-size: 7rem;
+          margin-top: 3rem;
+        }
+        .number {
+          width: 100%;
+          font-size: 1.6rem;
+        }
+      }
+      &--facebook {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 47%;
+        height: 95%;
+        border-radius: 1rem 1rem 1rem 1rem;
+        background-color: rgb(34, 112, 147, 1);
+
+        .svg {
+          display: flex;
+          justify-content: flex-end;
+          font-size: 7rem;
+          margin-top: 3rem;
+          width: 100%;
+          color: rgb(16, 148, 244, 0.8);
+        }
+
+        .messenger {
+          width: 100%;
+          font-size: 1rem;
+          border-radius: 1rem 1rem 1rem 1rem;
+
+          & > a {
+            display: flex;
+            text-decoration: none;
+            color: whitesmoke;
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+
+    &-2 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      height: 50%;
+      align-items: flex-end;
+
+      &--mail {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 47%;
+        height: 95%;
+        border-radius: 1rem 1rem 1rem 1rem;
+        background-color: rgb(161, 58, 35);
+
+        .svg {
+          font-size: 7rem;
+          width: 100%;
+          margin-top: 3rem;
+          color: rgb(233, 65, 52);
+        }
+
+        .gmail {
+          width: 100%;
+          font-size: 1rem;
+          border-radius: 1rem 1rem 1rem 1rem;
+          overflow: hidden;
+
+          & > a {
+            text-decoration: none;
+            color: whitesmoke;
+            font-size: 1.3rem;
+          }
+        }
+      }
+
+      &--github {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 47%;
+        height: 95%;
+
+        border-radius: 1rem 1rem 1rem 1rem;
+        background-color: rgb(142, 68, 173, 1);
+
+        .svg {
+          font-size: 7rem;
+          width: 100%;
+          margin-top: 3rem;
+          color: rgb(119, 62, 141);
+        }
+        .gitAcc {
+          width: 100%;
+          font-size: 1rem;
+          border-radius: 1rem 1rem 1rem 1rem;
+          overflow: hidden;
+
+          & > a {
+            display: inline-block;
+            text-decoration: none;
+            color: whitesmoke;
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
 }

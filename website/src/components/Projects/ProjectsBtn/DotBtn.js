@@ -1,6 +1,6 @@
 import React from "react";
 import { useWindowScroll } from "@uidotdev/usehooks";
-import "./DotBtn.css";
+import "./DotBtn.scss";
 
 function DotBtn() {
   const [{ x, y }, scrollTo] = useWindowScroll();

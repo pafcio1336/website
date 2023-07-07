@@ -4,7 +4,7 @@ import {
   MdOutlineArrowBackIosNew,
   MdOutlineArrowForwardIos,
 } from "react-icons/md";
-import "../ProjectsBtn/ProjectsBtn.css";
+import "../ProjectsBtn/ProjectsBtn.scss";
 
 function ProjectsBtn({ direction }) {
   const [{ x, y }, scrollTo] = useWindowScroll();
@@ -40,7 +40,7 @@ function ProjectsBtn({ direction }) {
               }
         }
       >
-        {btnDirection}
+        {/* {btnDirection} */}
       </button>
     </>
   );

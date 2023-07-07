@@ -8,7 +8,7 @@ function Navigation() {
         <span className="nav__name nav__name-white">Leszczyński</span>
       </div>
       <Button navTitle="Home" />
-      <Button navTitle="About me" />
+      {/* <Button navTitle="About me" /> */}
       <Button navTitle="Skill" />
       <Button navTitle="Projects" />
       <Button navTitle="Contact" />
