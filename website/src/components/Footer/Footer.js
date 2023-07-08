@@ -3,6 +3,7 @@ import React from "react";
 import { FaFacebookMessenger } from "@react-icons/all-files/fa/FaFacebookMessenger";
 import { SiGmail } from "@react-icons/all-files/si/SiGmail";
 import { AiOutlineWhatsApp } from "@react-icons/all-files/ai/AiOutlineWhatsApp";
+import { AiFillGithub } from "@react-icons/all-files/ai/AiFillGithub";
 import "./Footer.scss";
 function Footer() {
   return (
@@ -18,8 +19,12 @@ function Footer() {
       >
         <FaFacebookMessenger className="footer__social footer__social-massenger" />
       </a>
-
-      <SiGmail className="footer__social footer__social-gmail" />
+      <a href="https://mail.google.com/" target="_blank">
+        <SiGmail className="footer__social footer__social-gmail" />
+      </a>
+      <a href="https://github.com/pafcio1336" target="_blank">
+        <AiFillGithub className="footer__social footer__social-github" />
+      </a>
     </footer>
   );
 }

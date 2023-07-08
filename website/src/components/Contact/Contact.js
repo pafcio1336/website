@@ -41,7 +41,9 @@ function Contact() {
                 <SiGmail />
               </div>
               <span className="contact__details-2--mail gmail">
-                <a href="#">pawelcio1337@gmail.com</a>
+                <a href="https://mail.google.com/" target="_blank">
+                  pawelcio1337@gmail.com
+                </a>
               </span>
             </div>
 
@@ -50,7 +52,9 @@ function Contact() {
                 <AiFillGithub />
               </div>
               <span className="contact__details-2--github gitAcc">
-                <a href="#">https://github.com/pafcio1336</a>
+                <a href="https://github.com/pafcio1336" target="_blank">
+                  https://github.com/pafcio1336
+                </a>
               </span>
             </div>
           </div>
