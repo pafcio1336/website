@@ -7,4 +7,14 @@
   align-items: center;
   background-color: rgb(39, 66, 80);
   border: 1px solid rgb(39, 66, 80);
+
+  @media (max-width: 56.25em) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 37.5em) {
+    display: flex;
+    justify-content: space-around;
+  }
 }

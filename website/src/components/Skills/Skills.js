@@ -5,7 +5,7 @@ function Skills() {
   return (
     <div className="section__skills">
       {/* <div className="section__skills wrapper"> */}
-      <div className="section__skill container">
+      <div className="container">
         <div className="skill__box">
           <span className="title">HTML</span>
           <div className="skill__bar ">
@@ -47,7 +47,7 @@ function Skills() {
           </div>
         </div>
       </div>
-      <div className="section__skills paragraph paragraph-typewriter">
+      <div className="container paragraph paragraph-typewriter">
         <Typewriter
           options={{
             delay: 15,

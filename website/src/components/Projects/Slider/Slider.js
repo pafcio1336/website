@@ -58,36 +58,41 @@ function Slider() {
 
   return (
     <div className="projects">
-      <form className="inputForm" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={inputValue}
-          required
-          onFocus={handleFocus}
-          onChange={handleInput}
-          placeholder="Type your request"
-        ></input>
-        <button type="submit">find</button>
-      </form>
-      <div className="container__slider">
-        {res.results?.map((img, index) => {
-          return (
-            <div
-              className={
-                slideIndex === index + 1 ? "slider active-anim" : "slider"
-              }
-              key={img.id}
-            >
-              <img
-                src={img.urls.small}
-                alt={img.alt_description}
-                loading="lazy"
-              ></img>
-            </div>
-          );
-        })}
-        <SliderBtn moveSlide={prevSlide} direction={"prev"} />
-        <SliderBtn moveSlide={nextSlide} direction={"next"} />
+      <div className="container">
+        <form className="inputForm" onSubmit={handleSubmit}>
+          <input
+            className="inputForm__field"
+            type="text"
+            value={inputValue}
+            required
+            onFocus={handleFocus}
+            onChange={handleInput}
+            placeholder="Type your request"
+          ></input>
+          <button type="submit" className="inputForm__button">
+            find
+          </button>
+        </form>
+        <div className="container__slider">
+          {res.results?.map((img, index) => {
+            return (
+              <div
+                className={
+                  slideIndex === index + 1 ? "slider active-anim" : "slider"
+                }
+                key={img.id}
+              >
+                <img
+                  src={img.urls.small}
+                  alt={img.alt_description}
+                  loading="lazy"
+                ></img>
+              </div>
+            );
+          })}
+          <SliderBtn moveSlide={prevSlide} direction={"prev"} />
+          <SliderBtn moveSlide={nextSlide} direction={"next"} />
+        </div>
       </div>
     </div>
   );

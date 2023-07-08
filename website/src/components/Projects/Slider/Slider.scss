@@ -1,11 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .container__slider {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   justify-content: space-between;
-  height: 28rem;
-  width: 50rem;
+  height: 40em;
+  width: 60rem;
   margin: 0 auto;
   overflow: hidden;
   border: 1px solid rgba(100, 189, 228);
@@ -60,4 +66,49 @@
 
 .active-anim {
   opacity: 1;
+}
+
+.inputForm {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+
+  &__field {
+    width: 30rem;
+    height: 3rem;
+    font-size: 1.6rem;
+    border: 1px solid rgb(97, 219, 251);
+    background-color: rgb(86, 109, 121);
+    border-radius: 3px;
+    box-shadow: 0 0 1rem 0.1rem rgba(97, 219, 251, 1);
+
+    &::placeholder {
+      color: darkgray;
+      text-align: center;
+    }
+
+    &:focus {
+      text-align: center;
+      color: rgb(180, 181, 182);
+      &::placeholder {
+        visibility: hidden;
+      }
+    }
+  }
+
+  & button {
+    width: 5rem;
+    height: 3rem;
+    font-size: 1.6rem;
+    color: darkgray;
+    border-radius: 3px;
+    border: 1px solid rgb(97, 219, 251);
+    background-color: rgb(86, 109, 121);
+    box-shadow: 0 0 1rem 0.1rem rgba(97, 219, 251, 1);
+
+    &:hover {
+      background-color: rgb(107, 132, 145);
+      color: rgb(95, 104, 114);
+    }
+  }
 }
