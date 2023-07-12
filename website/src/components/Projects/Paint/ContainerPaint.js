@@ -167,7 +167,7 @@ function ContainerPaint() {
   return (
     <>
       <Tools
-        colorLine={colorLineHandler}
+        colorline={colorLineHandler}
         lineWidth={widthLineHandler}
         bucket={bucketHandler}
         eraser={eraserHandler}

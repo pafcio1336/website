@@ -1,15 +1,15 @@
 import React from "react";
 import "../Tools/Items.scss";
 
-function Items({ bucket, eraser, colorLine }) {
+function Items({ bucket, eraser, colorline }) {
   return (
     <div>
       <div className="items">
         {/* <button name="brush">🖌</button> */}
         <button
           name="bucket"
-          colorLine={colorLine}
-          onClick={() => bucket(colorLine)}
+          colorline={colorline}
+          onClick={() => bucket(colorline)}
         >
           🗃
         </button>

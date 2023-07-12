@@ -18,7 +18,7 @@ function ProjectsBtn({ direction }) {
   // let body = document.body;
   let width = window.screen.availWidth - 700;
 
-  console.log(width);
+  // console.log(width);
   return (
     <>
       <button

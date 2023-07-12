@@ -2,10 +2,10 @@ import React from "react";
 import "./Items.scss";
 import "./ColorsCard.scss";
 
-function ColorsCard({ color, colorLine }) {
+function ColorsCard({ color, colorline }) {
   return (
     <div
-      onClick={() => colorLine(color)}
+      onClick={() => colorline(color)}
       className="color-icon"
       style={{ backgroundColor: `${color}` }}
     ></div>
