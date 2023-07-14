@@ -4,18 +4,17 @@ import { useSelector, useDispatch } from "react-redux";
 import "./Product.scss";
 import { AiOutlineShoppingCart } from "@react-icons/all-files/ai/AiOutlineShoppingCart";
 import { increment } from "../../redux/actions/ProductsActions";
+import { useEffect } from "react";
 
-function Product({ itemCategory, handleProductDetail }) {
+function Product({
+  itemCategory,
+  handleProductDetail,
+  handlePlusCartClick,
+  counter,
+}) {
   const products = useSelector((state) => state.allProducts.products);
-  const counterObj = useSelector((state) => state.allProducts.counter.value);
-  const dispatch = useDispatch();
-  // console.log(counter);
-  const counterValue = counterObj ? counterObj.counter : null;
-  const handlePulsCartClick = (event) => {
-    event.preventDefault();
-
-    dispatch(increment(counterValue));
-  };
+  // const counter = useSelector((state) => state.counter.counter);
+  console.log("Product:", counter);
 
   const renderProducts = products
     .filter((product) => {
@@ -36,8 +35,12 @@ function Product({ itemCategory, handleProductDetail }) {
                 <div className="product__card-container--price">
                   $ {price}
                   <div className="product__cart-container--price btn">
-                    <button className="btn" onClick={handlePulsCartClick}>
-                      + <AiOutlineShoppingCart /> {counterValue}
+                    <button
+                      className="btn"
+                      key={id}
+                      onClick={() => handlePlusCartClick(id)}
+                    >
+                      + <AiOutlineShoppingCart value={id} /> {counter}
                     </button>
                   </div>
                 </div>

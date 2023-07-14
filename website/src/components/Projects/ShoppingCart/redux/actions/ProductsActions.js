@@ -19,16 +19,16 @@ export const removeSelectedProducts = (product) => {
   };
 };
 
-export const increment = (value) => {
+export const increment = (id) => {
   return {
     type: ActionTypes.INCREMENT,
-    payload: value,
+    payload: id,
   };
 };
 
-export const decrement = (value) => {
+export const decrement = (id) => {
   return {
     type: ActionTypes.DECREMENT,
-    payload: value,
+    payload: id,
   };
 };

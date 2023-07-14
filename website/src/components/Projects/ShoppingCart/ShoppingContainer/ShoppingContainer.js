@@ -6,14 +6,13 @@ import Product from "./Product/Product";
 import ProductDetail from "./ProductDetail/ProductDetail";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 
-function ShoppingContainer() {
+function ShoppingContainer({ handlePlusCartClick, counter, id, products }) {
   const [showProductJewelery, setShowProductJewelery] = useState(false);
   const [showProductWomen, setShowProductWomen] = useState(false);
   const [showProductMen, setShowProductMen] = useState(false);
   const [showProductElectro, setShowProductElectro] = useState(false);
   const [showProductDetail, setShowProductDetail] = useState(false);
-  const products = useSelector((state) => state.allProducts.products);
-  const { id, title, image, price, category } = products;
+  // const counter = useSelector((state) => state.AllProducts.counter);
 
   const handleProductJewelery = () => {
     setShowProductJewelery(true);
@@ -57,42 +56,58 @@ function ShoppingContainer() {
   };
   return (
     <div className="container__shopping">
-      <NavBar />
+      <NavBar counter={counter} />
       <div className="container__shopping-content">
         <ProductList
           handleProductJewelery={handleProductJewelery}
           handleProductWomen={handleProductWomen}
           handleProductMen={handleProductMen}
           handleProductElectro={handleProductElectro}
+          handlePlusCartClick={handlePlusCartClick}
         />
         {showProductJewelery ? (
           <Product
+            counter={counter}
             itemCategory="jewelery"
             handleProductDetail={handleProductDetail}
+            handlePlusCartClick={handlePlusCartClick}
           />
         ) : null}
         {showProductWomen ? (
           <Product
+            counter={counter}
             itemCategory="women's clothing"
             handleProductDetail={handleProductDetail}
+            handlePlusCartClick={handlePlusCartClick}
           />
         ) : null}
         {showProductMen ? (
           <Product
+            counter={counter}
             itemCategory="men's clothing"
             handleProductDetail={handleProductDetail}
+            handlePlusCartClick={handlePlusCartClick}
           />
         ) : null}
         {showProductElectro ? (
           <Product
+            counter={counter}
             itemCategory="electronics"
             handleProductDetail={handleProductDetail}
+            handlePlusCartClick={handlePlusCartClick}
           />
         ) : null}
-        {showProductDetail ? <ProductDetail id={id} /> : null}
+        {showProductDetail ? <ProductDetail counter={counter} /> : null}
       </div>
     </div>
   );
 }
 
 export default ShoppingContainer;
+
+// const mapStateToProps = (state) => {
+//   return {
+//     counter: state.allProducts.counter,
+//   };
+
+// connect(mapStateToProps)(

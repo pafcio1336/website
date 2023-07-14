@@ -1,0 +1,21 @@
+.modalCart__container {
+  display: flex;
+  width: 40rem;
+  height: 40rem;
+  border: 1px solid red;
+  background-color: red;
+  position: relative;
+}
+
+.Modal.btnClose {
+  display: flex;
+  justify-content: flex-end;
+  top: 5rem;
+  color: white;
+  //   transform: translate(-70%);
+}
+
+.ReactModalPortal {
+  display: flex;
+  background-color: red;
+}
