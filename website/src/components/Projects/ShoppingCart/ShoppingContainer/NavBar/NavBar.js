@@ -4,7 +4,8 @@ import { AiOutlineShoppingCart } from "@react-icons/all-files/ai/AiOutlineShoppi
 import { useSelector, useDispatch } from "react-redux";
 import { increment } from "../../redux/actions/ProductsActions";
 import Product from "../Product/Product";
-import ModalCart from "./ModalCart/ModalCart";
+import ModalCart from "../NavBar/ModalCart/ModalCart";
+// import Modal from "../NavBar/ModalCart";
 
 function NavBar({ counter }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -22,21 +23,23 @@ function NavBar({ counter }) {
   return (
     <div className="navbar">
       <div className="navbar__cart" onClick={openModalCart}>
-        <AiOutlineShoppingCart />
+        <ModalCart>
+          <AiOutlineShoppingCart />
+        </ModalCart>
       </div>
 
       <span className="counter">{counter}</span>
-      <div className="Modal" overlayClassName="Overlay">
+      {/* <div className="Modal" overlayClassName="Overlay">
         <ModalCart isOpen={modalIsOpen} onClose={closeModalCart}>
           <div className="random">
             <h2>hello modal</h2>
             <p>
               fjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkdladadjfsldjfoisadjfoisdjfsjdfdjf
             </p>
-            {/* <button className="btn" onClose={closeModalCart}></button> */}
+             <button className="btn" onClose={closeModalCart}></button>
           </div>
-        </ModalCart>
-      </div>
+        </ModalCart> 
+      </div> */}
     </div>
   );
 }

@@ -12,12 +12,16 @@
   position: relative;
 
   &__cart {
+    background-color: transparent;
+    border: none;
     display: flex;
+    font-size: 3rem;
     padding-right: 3rem;
-    // border: 1px solid red;
+    color: rgb(97, 219, 251);
+    // transform: translate(13px);
 
     &:hover {
-      color: rgb(97, 219, 251);
+      color: rgb(52, 115, 133);
       cursor: pointer;
     }
   }
@@ -26,14 +30,14 @@
 .counter {
   position: absolute;
   top: 2.5rem;
-  right: 2rem;
+  right: 4rem;
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
   color: rgb(97, 219, 251);
   font-size: 2rem;
 }
-.Modal {
+.modal {
   position: absolute;
   overflow: visible;
   display: flex;
@@ -41,32 +45,115 @@
   justify-content: center;
   width: 40rem;
   height: 40rem;
-  left: 30rem;
-  top: 0rem;
-  bottom: 0rem;
-  right: 0rem;
-  // visibility: hidden;
-  // border: 1px solid rgb(97, 219, 251);
-  background-color: transparent;
-  translate: transform(50%);
+  top: 20rem;
+  right: 25rem;
+  border: 1px solid rgb(97, 219, 251);
+  z-index: 700;
+  background-color: rgb(63, 80, 88);
+  // translate: transform(50%);
+  border-radius: 2rem;
+  box-shadow: inset 0px 0px 5px 2px rgba(97, 219, 251, 1);
+
+  &-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 600;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    height: 90%;
+    font-size: 1.6rem;
+
+    &-list {
+      width: 90%;
+    }
+
+    &-btn--close > button {
+      width: 7rem;
+      height: 3.5rem;
+      color: rgb(97, 219, 251);
+      border: rgb(63, 80, 88);
+      background-color: rgb(63, 80, 88);
+      font-size: 2.5rem;
+      transition: all 0.2s;
+
+      &:hover {
+        border: 1px solid (97, 219, 251, 1);
+        border-radius: 0.2rem;
+        box-shadow: 0px 0px 5px 2px rgba(97, 219, 251, 1);
+      }
+    }
+    font-size: 1.6rem;
+  }
 }
 
-.Overlay {
-  position: fixed;
-  // display: flex;
-  // align-items: flex-end;
+.element__wrapper {
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0rem;
-  right: 0;
-  bottom: 0;
-  // visibility: hidden;
-  background-color: transparent;
+
+  & > button {
+    width: 4rem;
+    color: rgba(97, 219, 251, 1);
+    background-color: rgb(49, 61, 66);
+    border: none;
+
+    &:hover {
+      border: 1px solid (97, 219, 251, 1);
+      border-radius: 0.6rem;
+      box-shadow: 0px 0px 5px 2px rgba(97, 219, 251, 1);
+    }
+  }
 }
 
-.random {
+.list__wrapper {
+  display: flex;
   width: 100%;
-  height: 100%;
-  border: 1px solid red;
+  color: whitesmoke;
 }
+
+.btn__price-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+}
+
+.total__price {
+  font-size: 2.5rem;
+  color: whitesmoke;
+}
+// &--list {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+//   width: 100%;
+//   height: 70%;
+//   margin-bottom: 4rem;
+//   &--wrapper {
+//     display: flex;
+//     flex-direction: row;
+//     color: white;
+//     & counter {
+//       color: red;
+//     }
+
+//     & .x {
+//       font-size: 1rem;
+//     }
+
+//     & div {
+//       display: block;
+//     }
+//   }
+// }
