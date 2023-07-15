@@ -12,7 +12,6 @@ function ShoppingContainer({ handlePlusCartClick, counter, id, products }) {
   const [showProductMen, setShowProductMen] = useState(false);
   const [showProductElectro, setShowProductElectro] = useState(false);
   const [showProductDetail, setShowProductDetail] = useState(false);
-  // const counter = useSelector((state) => state.AllProducts.counter);
 
   const handleProductJewelery = () => {
     setShowProductJewelery(true);

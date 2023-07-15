@@ -9,6 +9,46 @@
   box-shadow: inset 0px 0px 10px 5px rgba(97, 219, 251, 1);
   padding: 1rem;
   overflow: hidden;
+
+  @media (max-width: 112.5em) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-x: scroll;
+    overflow: auto;
+    margin: auto;
+  }
+  @media (max-width: 75em) {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 100%;
+    overflow-x: scroll;
+    overflow: auto;
+  }
+  @media (max-width: 37.5em) {
+    height: 100%;
+    flex-direction: column;
+
+    overflow-y: scroll;
+    overflow: auto;
+  }
+
+  @media (max-width: 56.25em) {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 100%;
+    overflow-y: scroll;
+    overflow: auto;
+  }
+
+  @media (max-width: 25em) {
+    height: 100%;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow: auto;
+  }
 }
 
 .product__card {
@@ -19,9 +59,40 @@
   width: 20rem;
   height: 45rem;
   margin: 1rem;
-  // box-shadow: 0px 1px 3px 2px rgb(47, 60, 66, 1);
   box-shadow: 0px 1px 5px 2px rgb(97, 219, 251);
   transition: all 0.2s;
+
+  // @media (max-width: 75em) {
+  // }
+
+  @media (max-width: 56.25em) {
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 37.5em) {
+    height: 60%;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    &:first-child {
+      margin-top: 205rem;
+    }
+    &:last-child {
+      margin-bottom: 4rem;
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 25em) {
+    height: 60%;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    &:first-child {
+      margin-top: 180rem;
+    }
+    &:last-child {
+      margin-bottom: 4rem;
+    }
+  }
 
   & > a {
     color: whitesmoke;
@@ -65,6 +136,10 @@
     padding-bottom: 1rem;
     background-color: rgb(74, 97, 109);
     border-radius: 0px 0px 3px 3px;
+
+    // @media (max-width: 56.25em) {
+    //   height: 20rem;
+    // }
 
     &--price {
       display: flex;

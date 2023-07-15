@@ -13,7 +13,6 @@ function Product({
   counter,
 }) {
   const products = useSelector((state) => state.allProducts.products);
-  // const counter = useSelector((state) => state.counter.counter);
   console.log("Product:", counter);
 
   const renderProducts = products
@@ -40,7 +39,7 @@ function Product({
                       key={id}
                       onClick={() => handlePlusCartClick(id)}
                     >
-                      + <AiOutlineShoppingCart value={id} /> {counter}
+                      + <AiOutlineShoppingCart /> {counter}
                     </button>
                   </div>
                 </div>
