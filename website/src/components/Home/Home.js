@@ -18,7 +18,7 @@ function Home() {
         </div>
         <div className="section__home-photoContainer">
           <div className="section__home-photo">
-            <object src="../../../zdjecie2.jpg" alt="zdjecie2"></object>
+            <object src="../../iamge/zdjecie2.jpg" alt="zdjecie2"></object>
           </div>
         </div>
       </div>
