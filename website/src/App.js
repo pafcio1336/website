@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import React, { useEffect } from "react";
 import Navigation from "./components/Nav/Navigation";
 import Home from "./components/Home/Home";
@@ -23,21 +23,15 @@ function App() {
       <Navigation />
       <BrowserRouter>
         <Routes>
-          <Route path="*" element={<Home />} />
-          <Route exact path="/Skill" element={<Skills />} />
-          <Route exact path="/Projects" element={<Projects />}>
-            <Route
-              exact
-              path="/Projects/ShoppingCart"
-              element={<ShoppingCart />}
-            >
+          <Route exact path="/" element={<Home />} />
+          <Route path="/Skill" element={<Skills />} />
+          <Route path="/Projects" element={<Projects />}>
+            <Route path="/Projects/ShoppingCart" element={<ShoppingCart />}>
               <Route
-                exact
                 path="/Projects/ShoppingCart/ShoppingContainer"
                 element={<ShoppingContainer />}
               >
                 <Route
-                  exact
                   path="/Projects/ShoppingCart/ShoppingContainer/ProductDetail"
                   element={<ProductDetail />}
                 />
@@ -45,6 +39,7 @@ function App() {
             </Route>
           </Route>
           <Route exact path="/Contact" element={<Contact />} />
+          <Route path="/*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
       <Footer />
