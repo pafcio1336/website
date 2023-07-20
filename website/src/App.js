@@ -23,7 +23,7 @@ function App() {
       <Navigation />
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/Skill" element={<Skills />} />
           <Route path="/Projects" element={<Projects />}>
             <Route path="/Projects/ShoppingCart" element={<ShoppingCart />}>
@@ -39,7 +39,7 @@ function App() {
             </Route>
           </Route>
           <Route exact path="/Contact" element={<Contact />} />
-          <Route path="/*" element={<Navigate to="/" />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
       <Footer />
