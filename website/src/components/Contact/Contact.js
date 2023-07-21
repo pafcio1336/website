@@ -41,8 +41,8 @@ function Contact() {
                 <SiGmail />
               </div>
               <span className="contact__details-2--mail gmail">
-                <a href="https://mail.google.com/" target="_blank">
-                  pawelcio1337@gmail.com
+                <a href="https://gmail.google.com/" target="_blank">
+                  pawel@leszczynski.it
                 </a>
               </span>
             </div>

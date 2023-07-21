@@ -5,6 +5,13 @@
   justify-content: center;
   align-items: center;
   position: relative;
+
+  @media (max-width: 37.5em) {
+    overflow: hidden;
+  }
+  @media (max-width: 25em) {
+    overflow: hidden;
+  }
 }
 .projects {
   height: 100vh;

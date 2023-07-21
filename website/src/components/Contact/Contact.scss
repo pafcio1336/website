@@ -67,12 +67,16 @@
         height: 95%;
         border-radius: 1rem 1rem 1rem 1rem;
         background-color: rgb(33, 140, 117);
+        transition: all 0.2s;
 
         .svg {
           width: 100%;
           color: rgb(9, 161, 62);
           font-size: 7rem;
           margin-top: 3rem;
+          &:hover {
+            color: rgb(44, 177, 148);
+          }
         }
         .number {
           width: 100%;
@@ -88,6 +92,7 @@
         height: 95%;
         border-radius: 1rem 1rem 1rem 1rem;
         background-color: rgb(34, 112, 147, 1);
+        transition: all 0.2s;
 
         .svg {
           display: flex;
@@ -96,6 +101,9 @@
           margin-top: 3rem;
           width: 100%;
           color: rgb(16, 148, 244, 0.8);
+          &:hover {
+            color: rgba(76, 176, 248, 0.8);
+          }
         }
 
         .messenger {
@@ -130,12 +138,17 @@
         height: 95%;
         border-radius: 1rem 1rem 1rem 1rem;
         background-color: rgb(161, 58, 35);
+        transition: all 0.2s;
 
         .svg {
           font-size: 7rem;
           width: 100%;
           margin-top: 3rem;
           color: rgb(233, 65, 52);
+
+          &:hover {
+            color: rgb(192, 116, 110);
+          }
         }
 
         .gmail {
@@ -162,12 +175,16 @@
 
         border-radius: 1rem 1rem 1rem 1rem;
         background-color: rgb(142, 68, 173, 1);
+        transition: all 0.2s;
 
         .svg {
           font-size: 7rem;
           width: 100%;
           margin-top: 3rem;
           color: rgb(119, 62, 141);
+          &:hover {
+            color: rgb(203, 123, 238);
+          }
         }
         .gitAcc {
           width: 100%;
