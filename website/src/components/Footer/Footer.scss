@@ -19,22 +19,42 @@
 
     &-whatsup {
       color: rgb(0, 148, 50);
+      transition: color 0.2s;
+
+      &:hover {
+        color: rgb(96, 223, 195);
+      }
     }
 
     &-massenger {
       margin-top: 0.8rem;
       color: rgb(16, 148, 244);
+      transition: color 0.2s;
+
+      &:hover {
+        color: rgba(147, 210, 255, 0.8);
+      }
     }
 
     &-gmail {
       margin-top: 0.8rem;
       margin-right: 2rem;
       color: rgb(233, 65, 52);
+      transition: color 0.2s;
+
+      &:hover {
+        color: rgb(245, 162, 156);
+      }
     }
 
     &-github {
-      margin-top: 0.9rem;
+      margin-top: 0.8rem;
       font-size: 1.8rem;
+      transition: color 0.2s;
+
+      &:hover {
+        color: rgb(203, 123, 238);
+      }
     }
 
     &-copy {
