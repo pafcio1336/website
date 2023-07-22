@@ -7,9 +7,10 @@ import { increment } from "./redux/actions/ProductsActions";
 function ShoppingCart() {
   const products = useSelector((state) => state.allProducts.products);
   const id = products.length > 0 ? products[0].id : null;
-  const counter = useSelector(
-    (state) => state.counter.items.find((item) => item.id === id)?.counter
-  );
+  // const counter = useSelector(
+  //   (state) => state.counter.items.find((item) => item.id === id)?.counter);
+  const counter = useSelector((state) => state.allProducts.items.id);
+
   const dispatch = useDispatch();
 
   const handlePlusCartClick = (id) => {
@@ -18,7 +19,7 @@ function ShoppingCart() {
   };
 
   useEffect(() => {
-    console.log(counter);
+    console.log("coutner:", counter, "products:", products, "id:", products.id);
   }, [counter]);
 
   return (

@@ -16,7 +16,7 @@ function ProductDetail() {
   const { image, title, price, category, description } = product;
 
   const dispatch = useDispatch();
-  console.log(productId);
+  console.log(product);
 
   const fetchProductDetail = async (id) => {
     const response = await axios

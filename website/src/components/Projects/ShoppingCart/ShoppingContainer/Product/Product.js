@@ -19,7 +19,7 @@ function Product({
     .filter((product) => {
       return product.category === itemCategory;
     })
-    .map((product) => {
+    .map((product, index) => {
       const { id, title, image, price, category } = product;
       return (
         <div className="product__card" key={id}>
@@ -30,13 +30,17 @@ function Product({
 
             <div className="product__card-container">
               <div className="product__card-title">{title}</div>
-              <div className="product__card-container">
+              <div
+                className="product__card-container"
+                onClick={handleProductDetail}
+                to={`/product/:${id}`}
+              >
                 <div className="product__card-container--price">
                   $ {price}
                   <div className="product__cart-container--price btn">
                     <button
                       className="btn"
-                      key={id}
+                      key={index}
                       onClick={() => handlePlusCartClick(id)}
                     >
                       + <AiOutlineShoppingCart /> {counter}
@@ -58,5 +62,3 @@ function Product({
 }
 
 export default Product;
-
-// onClick={handleProductDetail} to={`/product/${id}`}
