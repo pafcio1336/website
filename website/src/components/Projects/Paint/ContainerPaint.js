@@ -8,7 +8,8 @@ function ContainerPaint() {
   const [fullColor, setFullColor] = useState({
     backgroundColor: "white",
   });
-
+  const [isDrawing, setIsDrawing] = useState(false);
+  const [lastPoint, setLastPoint] = useState(null);
   const [lineColor, setLineColor] = useState("black");
   const [cursorColor, setCursorColor] = useState(lineColor);
   const [lineWidthNew, setLineWidthNew] = useState(5);
@@ -142,6 +143,35 @@ function ContainerPaint() {
     return setCanvasRef;
   }
 
+  function onTouchStart(e) {
+    setIsDrawing(true);
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    const touch = e.touches[0];
+    const x = touch.clientX - touch.target.offsetLeft;
+    const y = touch.clientY - touch.target.offsetTop;
+    setLastPoint({ x, y });
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+  }
+
+  function onTouchMove(e) {
+    if (!isDrawing) return;
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    const touch = e.touches[0];
+    const x = touch.clientX - touch.target.offsetLeft;
+    const y = touch.clientY - touch.target.offsetTop;
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    setLastPoint({ x, y });
+  }
+
+  function onTouchEnd() {
+    setIsDrawing(false);
+    setLastPoint(null);
+  }
+
   const eraserHandler = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
@@ -178,6 +208,9 @@ function ContainerPaint() {
         className="paint__box"
         width={`800px`}
         height={`500px`}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
       ></canvas>
     </>
   );

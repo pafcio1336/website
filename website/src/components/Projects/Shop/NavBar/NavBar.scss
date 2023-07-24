@@ -64,7 +64,6 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-
   width: 55rem;
   height: 40rem;
   top: 20rem;
@@ -86,18 +85,18 @@
   }
 
   @media (max-width: 56.25em) {
-    top: 22rem;
+    top: 25rem;
     right: 13rem;
   }
 
   @media (max-width: 37.5em) {
-    top: 28rem;
-    right: 17rem;
+    top: 23rem;
+    right: 6.5rem;
   }
 
   @media (max-width: 25em) {
     top: 35rem;
-    right: 13rem;
+    right: 9rem;
   }
 
   &__content {
@@ -119,6 +118,7 @@
       font-size: 2rem;
       margin: 3rem;
     }
+
     &-close {
       display: flex;
       align-items: center;
@@ -148,7 +148,6 @@
       margin: 3rem;
       margin-right: 0;
       width: 45rem;
-      // width: calc(33.33% - 4rem);
       list-style-type: none;
     }
 
@@ -164,14 +163,13 @@
       }
     }
     background-color: transparent;
-    margin-left: auto; /* Przycisk jest zawsze po prawej stronie */
+    margin-left: auto;
     color: rgb(97, 219, 251);
     border: none;
     font-size: 1.8rem;
     cursor: pointer;
 
     &:hover {
-      /* Efekt hover na przycisku "Remove" */
       border: 1px solid rgba(97, 219, 251, 1);
       border-radius: 0.2rem;
       box-shadow: 0px 0px 5px 2px rgba(97, 219, 251, 1);
@@ -184,28 +182,6 @@
   justify-content: flex-end;
   font-size: 1.4rem;
 }
-
-// &-list > li {
-//   width: 90%;
-//   text-decoration: none;
-// }
-
-//   .close {
-//     width: 7rem;
-//     height: 3.5rem;
-//     color: rgb(97, 219, 251);
-//     border: rgb(63, 80, 88);
-//     background-color: rgb(63, 80, 88);
-//     font-size: 2.5rem;
-//     transition: all 0.2s;
-
-//     &:hover {
-//       border: 1px solid (97, 219, 251, 1);
-//       border-radius: 0.2rem;
-//       box-shadow: 0px 0px 5px 2px rgba(97, 219, 251, 1);
-//     }
-//   }
-//   font-size: 1.6rem;
 
 .element__wrapper {
   display: flex;
@@ -224,22 +200,4 @@
       box-shadow: 0px 0px 5px 2px rgba(97, 219, 251, 1);
     }
   }
-}
-
-.list__wrapper {
-  display: flex;
-  width: 100%;
-  color: whitesmoke;
-}
-
-.btn__price-wrapper {
-  display: flex;
-  flex-direction: row;
-  width: 90%;
-  justify-content: space-between;
-}
-
-.total__price {
-  font-size: 2.5rem;
-  color: whitesmoke;
 }

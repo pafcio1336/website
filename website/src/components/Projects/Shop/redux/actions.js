@@ -6,10 +6,15 @@ export const addToCart = (product) => ({
   type: ADD_TO_CART,
   payload: product,
 });
-export const removeFromCart = (productId) => ({
-  type: REMOVE_FROM_CART,
-  payload: productId,
-});
+export const removeFromCart = (productId, quantity = 1) => {
+  return {
+    type: REMOVE_FROM_CART,
+    payload: {
+      productId,
+      quantity,
+    },
+  };
+};
 
 export const filterProductsByCategory = (category) => ({
   type: FILTER_PRODUCTS_BY_CATEGORY,

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { addToCart, filterProductsByCategory } from "../redux/actions";
@@ -8,6 +8,9 @@ import { AiOutlineShoppingCart } from "@react-icons/all-files/ai/AiOutlineShoppi
 const ProductList = ({ showModal, setShowModal }) => {
   const [products, setProducts] = useState([]);
   const cartItems = useSelector((state) => state.cartItems);
+
+  // State to track the IDs of products recently added to the cart
+  const [recentlyAddedProductIds, setRecentlyAddedProductIds] = useState([]);
 
   const dispatch = useDispatch();
   const filteredCategory = useSelector((state) => state.filteredCategory);
@@ -24,14 +27,15 @@ const ProductList = ({ showModal, setShowModal }) => {
   }, []);
 
   const handleAddToCart = (product) => {
-    const existingProduct = cartItems.find((item) => item.id === product.id);
-    if (existingProduct) {
-      dispatch(
-        addToCart({ ...product, quantity: existingProduct.quantity + 1 })
-      );
-    } else {
-      dispatch(addToCart({ ...product, quantity: 1 }));
+    if (recentlyAddedProductIds.includes(product.id)) {
+      return;
     }
+
+    dispatch(addToCart({ ...product, quantity: 1 }));
+
+    setRecentlyAddedProductIds([...recentlyAddedProductIds, product.id]);
+
+    setTimeout(() => setRecentlyAddedProductIds([]), 1000);
   };
 
   const handleFilterByCategory = (category) => {
@@ -61,10 +65,8 @@ const ProductList = ({ showModal, setShowModal }) => {
           <button onClick={() => handleFilterByCategory("women's clothing")}>
             Women clothing
           </button>
-          {/* <button onClick={() => setShowModal(true)}>Show Basket</button> */}
         </div>
         <div className="products__container">
-          {/* <div className="product__card"> */}
           {filteredProducts.map((product) => (
             <div className="product__card-container" key={product.id}>
               <div className="product__card-image">
@@ -89,58 +91,10 @@ const ProductList = ({ showModal, setShowModal }) => {
               </div>
             </div>
           ))}
-          ;
         </div>
       </div>
-      {/* </div> */}
     </>
   );
 };
 
 export default ProductList;
-{
-  /* <ul>
-          {filteredProducts.map((product) => (
-            <li key={product.id}>
-              {product.title} - {product.price} $
-              <button onClick={() => handleAddToCart(product)}>
-                Dodaj do koszyka
-              </button>
-            </li>
-          ))}
-        </ul> */
-}
-// <div className="product__card" key={id}>
-//            <Link>
-//              <div className="product__card-image">
-//                <img src={image} alt={title}></img>
-//              </div>
-
-//              <div className="product__card-container">
-//                <div className="product__card-title">{title}</div>
-//               <div
-//                 className="product__card-container"
-//                 onClick={handleProductDetail}
-//                 to={`/product/:${id}`}
-//               >
-//                 {" "}
-//                 {id}
-//                 <div className="product__card-container--price">
-//                   $ {price}
-//                   <div className="product__cart-container--price btn">
-//                     <button
-//                       className="btn"
-//                       key={index}
-//                       onClick={() => handlePlusCartClick(id)}
-//                     >
-//                       + <AiOutlineShoppingCart /> {counter}
-//                     </button>
-//                   </div>
-//                 </div>
-//                 <div className="product__card-container--category">
-//                   {category}
-//                 </div>
-//               </div>
-//             </div>
-//           </Link>
-//         </div>
