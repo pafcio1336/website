@@ -1,0 +1,245 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 7rem;
+  background-color: rgb(63, 80, 88);
+  border-bottom: 1px solid rgb(97, 219, 251);
+  box-shadow: inset 0px 0px 5px 2px rgba(97, 219, 251, 1);
+  border-radius: 1.5rem 1.5rem 0rem 0rem;
+  font-size: 3rem;
+  position: relative;
+
+  .title {
+    display: flex;
+    margin-left: 3rem;
+    font-size: 3rem;
+    color: rgb(97, 219, 251);
+  }
+
+  &__cart {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    font-size: 3rem;
+    padding-right: 3rem;
+    color: rgb(97, 219, 251);
+    cursor: pointer;
+
+    @media (max-width: 75em) {
+    }
+
+    @media (max-width: 56.25em) {
+    }
+
+    @media (max-width: 37.5em) {
+    }
+
+    @media (max-width: 25em) {
+      font-size: 2rem;
+    }
+
+    &:hover {
+      color: rgb(52, 115, 133);
+      cursor: pointer;
+    }
+  }
+}
+
+.counter {
+  position: absolute;
+  top: 2.5rem;
+  right: 4rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: rgb(97, 219, 251);
+  font-size: 2rem;
+  transform: translate(-1rem);
+}
+.modal {
+  position: absolute;
+  overflow: visible;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  width: 55rem;
+  height: 40rem;
+  top: 20rem;
+  right: 25rem;
+  border: 1px solid rgb(97, 219, 251);
+  z-index: 700;
+  background-color: rgb(63, 80, 88);
+  border-radius: 2rem;
+  box-shadow: inset 0px 0px 5px 2px rgba(97, 219, 251, 1);
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 2rem;
+  }
+
+  @media (max-width: 75em) {
+    top: 24rem;
+    right: 20rem;
+  }
+
+  @media (max-width: 56.25em) {
+    top: 22rem;
+    right: 13rem;
+  }
+
+  @media (max-width: 37.5em) {
+    top: 28rem;
+    right: 17rem;
+  }
+
+  @media (max-width: 25em) {
+    top: 35rem;
+    right: 13rem;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    padding-right: 6rem;
+    width: 100%;
+    height: 90%;
+    font-size: 1.6rem;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      font-size: 2rem;
+      margin: 3rem;
+    }
+    &-close {
+      display: flex;
+      align-items: center;
+      width: 7rem;
+      height: 3.5rem;
+      margin-right: 3rem;
+      color: rgb(97, 219, 251);
+      border: rgb(63, 80, 88);
+      background-color: rgb(63, 80, 88);
+      font-size: 2.5rem;
+      transition: all 0.2s;
+      cursor: pointer;
+
+      &:hover {
+        border: 1px solid (97, 219, 251, 1);
+        border-radius: 0.2rem;
+        box-shadow: 0px 0px 5px 2px rgba(97, 219, 251, 1);
+      }
+    }
+
+    &-list > li {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 45rem;
+      word-wrap: break-word;
+      margin: 3rem;
+      margin-right: 0;
+      width: 45rem;
+      // width: calc(33.33% - 4rem);
+      list-style-type: none;
+    }
+
+    &-list li button {
+      margin-left: 3rem;
+      background-color: transparent;
+      border: none;
+      color: whitesmoke;
+      transition: all 0.2s;
+
+      &:hover {
+        color: rgba(97, 219, 251, 1);
+      }
+    }
+    background-color: transparent;
+    margin-left: auto; /* Przycisk jest zawsze po prawej stronie */
+    color: rgb(97, 219, 251);
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+
+    &:hover {
+      /* Efekt hover na przycisku "Remove" */
+      border: 1px solid rgba(97, 219, 251, 1);
+      border-radius: 0.2rem;
+      box-shadow: 0px 0px 5px 2px rgba(97, 219, 251, 1);
+    }
+  }
+}
+
+.price {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.4rem;
+}
+
+// &-list > li {
+//   width: 90%;
+//   text-decoration: none;
+// }
+
+//   .close {
+//     width: 7rem;
+//     height: 3.5rem;
+//     color: rgb(97, 219, 251);
+//     border: rgb(63, 80, 88);
+//     background-color: rgb(63, 80, 88);
+//     font-size: 2.5rem;
+//     transition: all 0.2s;
+
+//     &:hover {
+//       border: 1px solid (97, 219, 251, 1);
+//       border-radius: 0.2rem;
+//       box-shadow: 0px 0px 5px 2px rgba(97, 219, 251, 1);
+//     }
+//   }
+//   font-size: 1.6rem;
+
+.element__wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  & > button {
+    width: 4rem;
+    color: rgba(97, 219, 251, 1);
+    background-color: rgb(49, 61, 66);
+    border: none;
+
+    &:hover {
+      border: 1px solid (97, 219, 251, 1);
+      border-radius: 0.6rem;
+      box-shadow: 0px 0px 5px 2px rgba(97, 219, 251, 1);
+    }
+  }
+}
+
+.list__wrapper {
+  display: flex;
+  width: 100%;
+  color: whitesmoke;
+}
+
+.btn__price-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+}
+
+.total__price {
+  font-size: 2.5rem;
+  color: whitesmoke;
+}

@@ -1,25 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import "./Product.scss";
-import { AiOutlineShoppingCart } from "@react-icons/all-files/ai/AiOutlineShoppingCart";
-import { increment } from "../../redux/actions/ProductsActions";
-import { useEffect } from "react";
+// import React from "react";
+// import { Link } from "react-router-dom";
+// import { useSelector, useDispatch } from "react-redux";
+// import "./Product.scss";
+// import { AiOutlineShoppingCart } from "@react-icons/all-files/ai/AiOutlineShoppingCart";
+// import { increment } from "../../redux/actions/ProductsActions";
+// import { useEffect } from "react";
 
 function Product({
   itemCategory,
   handleProductDetail,
   handlePlusCartClick,
   counter,
+  productIds,
 }) {
   const products = useSelector((state) => state.allProducts.products);
-  console.log("Product:", counter);
+  console.log("Product:", products);
 
   const renderProducts = products
     .filter((product) => {
       return product.category === itemCategory;
     })
     .map((product, index) => {
+      console.log("Ids", productIds);
       const { id, title, image, price, category } = product;
       return (
         <div className="product__card" key={id}>
@@ -35,6 +37,8 @@ function Product({
                 onClick={handleProductDetail}
                 to={`/product/:${id}`}
               >
+                {" "}
+                {id}
                 <div className="product__card-container--price">
                   $ {price}
                   <div className="product__cart-container--price btn">
@@ -47,7 +51,6 @@ function Product({
                     </button>
                   </div>
                 </div>
-
                 <div className="product__card-container--category">
                   {category}
                 </div>

@@ -8,7 +8,7 @@
   border: 1px solid rgb(97, 219, 251);
   box-shadow: inset 0px 0px 10px 5px rgba(97, 219, 251, 1);
   padding: 1rem;
-  overflow: hidden;
+  overflow: visible;
 
   @media (max-width: 112.5em) {
     display: flex;

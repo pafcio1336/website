@@ -3,7 +3,7 @@ import "./Projects.scss";
 import Slider from "./Slider/Slider";
 import ProjectsBtn from "./ProjectsBtn/ProjectsBtn";
 import Paint from "./Paint/Paint";
-import ShoppingCart from "./ShoppingCart/ShoppingCart";
+import Shop from "./Shop/Shop";
 import DotBtn from "./ProjectsBtn/DotBtn";
 
 function Projects() {
@@ -22,7 +22,7 @@ function Projects() {
 
         <Paint />
         <Slider />
-        <ShoppingCart />
+        <Shop />
       </div>
     </>
   );

@@ -1,14 +1,14 @@
-import { combineReducers } from "redux";
-import {
-  productReducer,
-  selectedProductsReducer,
-  counterReducer,
-} from "./productReducer";
+// import { combineReducers } from "redux";
+// import {
+//   productReducer,
+//   selectedProductsReducer,
+//   counterReducer,
+// } from "./productReducer";
 
-const reducers = combineReducers({
-  allProducts: productReducer,
-  product: selectedProductsReducer,
-  counter: counterReducer,
-});
+// const reducers = combineReducers({
+//   allProducts: productReducer,
+//   product: selectedProductsReducer,
+//   counter: counterReducer,
+// });
 
-export default reducers;
+// export default reducers;
