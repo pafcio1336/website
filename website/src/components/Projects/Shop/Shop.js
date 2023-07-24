@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Provider, useDispatch } from "react-redux";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; //
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import ProductList from "./Cart/ProductList";
 import ShoppingCart from "./Cart/ShoppingCart";
